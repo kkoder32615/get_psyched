@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Get Psyched</string>
+    <string name="please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days">Please enter a number between 1 and 12. Full tolerance reset occurs after 12 days</string>
+    <string name="first_run_message">Get Psyched is for users at least 18 years of age. We do not condone the use of any legal or illegal substances; this app is meant to be used as an educational and harm reduction resource</string>
+    <string name="agree">Agree</string>
+    <string name="exit">Exit</string>
+    <string name="welcome">Welcome</string>
+    <string name="incorrect_number">Incorrect Number</string>
+    <string name="please_enter_number">Please enter a number</string>
+    <string name="okay">Okay</string>
+    <string name="lsd_banner">Lysergic Acid Diethylamide - LSD-25</string>
+    <string name="about">About</string>
+    <string name="tolerance_calculator">Tolerance Calculator</string>
+    <string name="reset">Reset</string>
+    <string name="calculate">Calculate</string>
+    <string name="desired_dose_in_ug">Desired dose in ug</string>
+    <string name="days_since_last_dose">Days since last dose</string>
+    <string name="last_dose_in_ug">Last dose in ug</string>
+    <string name="lsd_tolerance_calculator">LSD Tolerance Calculator</string>
+</resources>
