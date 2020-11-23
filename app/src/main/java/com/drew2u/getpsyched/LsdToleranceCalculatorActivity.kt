@@ -25,7 +25,7 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_lsd_calculate).setOnClickListener { postResults() }
 
         // Clears all entered data and results
-        findViewById<Button>(R.id.btn_lsd_reset).setOnClickListener { postResults() }
+        findViewById<Button>(R.id.btn_lsd_reset).setOnClickListener { clearEnteredData() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -66,7 +66,7 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
 
     /**
      * Takes three params to calculate the approximate dosage to take. Creates alert dialog if
-     * incorrect number is entered
+     * invalid number is entered
      */
     private fun calculateTolerance(lastDose: Int, desiredDose: Int, days: Int): Long {
         return when (days) {
