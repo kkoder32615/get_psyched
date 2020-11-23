@@ -4,23 +4,28 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.drew2u.getpsyched.databinding.ActivityLsdToleranceCalculatorBinding
 import kotlin.math.pow
 
 class LsdToleranceCalculatorActivity : AppCompatActivity() {
 
+    private lateinit var etLsdDaysSinceLast: EditText
+    private lateinit var etLsdDesiredDose: EditText
+    private lateinit var etLsdLastDose: EditText
+    private lateinit var tvLsdCalculatorResult: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val binding = ActivityLsdToleranceCalculatorBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_lsd_tolerance_calculator)
 
         // Posts calculations on user data to a TextView
-        binding.btnLsdCalculate.setOnClickListener { postResults(binding) }
+        findViewById<Button>(R.id.btn_lsd_calculate).setOnClickListener { postResults() }
 
         // Clears all entered data and results
-        binding.btnLsdReset.setOnClickListener { clearEnteredData(binding) }
+        findViewById<Button>(R.id.btn_lsd_reset).setOnClickListener { postResults() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -39,22 +44,22 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
     /**
      * Clears entered data and sets results view back to default message
      */
-    private fun clearEnteredData(binding: ActivityLsdToleranceCalculatorBinding) {
-        binding.etLsdLastDose.setText("")
-        binding.etLsdDesiredDose.setText("")
-        binding.etLsdDaysSinceLast.setText("")
-        binding.tvLsdCalculatorResult.setText(R.string.please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days)
+    private fun clearEnteredData() {
+        etLsdLastDose.setText("")
+        etLsdDesiredDose.setText("")
+        etLsdDaysSinceLast.setText("")
+        tvLsdCalculatorResult.setText(R.string.please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days)
     }
 
     /**
      * Captures and converts entered data, then posts the results to a TextView
      */
-    private fun postResults(binding: ActivityLsdToleranceCalculatorBinding) = try {
-        val lastDose = Integer.parseInt(binding.etLsdLastDose.text.toString())
-        val desiredDose = Integer.parseInt(binding.etLsdDesiredDose.text.toString())
-        val days = Integer.parseInt(binding.etLsdDaysSinceLast.text.toString())
-        val result = calculateTolerance(lastDose, desiredDose, days, binding)
-        binding.tvLsdCalculatorResult.text = result.toString()
+    private fun postResults() = try {
+        val lastDose = Integer.parseInt(etLsdLastDose.text.toString())
+        val desiredDose = Integer.parseInt(etLsdDesiredDose.text.toString())
+        val days = Integer.parseInt(etLsdDaysSinceLast.text.toString())
+        val result = calculateTolerance(lastDose, desiredDose, days)
+        tvLsdCalculatorResult.setText(result.toString())
     } catch (e: NumberFormatException) {
         alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_number), getString(R.string.okay), this)
     }
@@ -63,12 +68,12 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
      * Takes three params to calculate the approximate dosage to take. Creates alert dialog if
      * incorrect number is entered
      */
-    private fun calculateTolerance(lastDose: Int, desiredDose: Int, days: Int, binding: ActivityLsdToleranceCalculatorBinding): Long {
+    private fun calculateTolerance(lastDose: Int, desiredDose: Int, days: Int): Long {
         return when (days) {
             in 1..12 -> (desiredDose + (((lastDose / 100) * 280.059565 * days.toDouble().pow(0.412565956)) - lastDose)).toLong()
             else -> {
                 alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days), getString(R.string.okay), this)
-                clearEnteredData(binding)
+                clearEnteredData()
                 0
             }
         }
