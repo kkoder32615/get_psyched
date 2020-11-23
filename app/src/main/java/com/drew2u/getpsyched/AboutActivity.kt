@@ -13,7 +13,7 @@ import kotlin.system.exitProcess
 
 private const val FIRST_RUN = "firstRun"
 
-class MainActivity : AppCompatActivity() {
+class AboutActivity : AppCompatActivity() {
     private lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -40,7 +40,7 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.mnu_about -> startActivity(Intent(this, MainActivity::class.java))
+            R.id.mnu_about -> startActivity(Intent(this, AboutActivity::class.java))
             else -> super.onOptionsItemSelected(item)
         }
         return true
