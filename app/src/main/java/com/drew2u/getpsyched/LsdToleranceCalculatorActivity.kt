@@ -21,6 +21,11 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lsd_tolerance_calculator)
 
+        etLsdDaysSinceLast = findViewById(R.id.et_lsd_days_since_last)
+        etLsdDesiredDose = findViewById(R.id.et_lsd_desired_dose)
+        etLsdLastDose = findViewById(R.id.et_lsd_last_dose)
+        tvLsdCalculatorResult = findViewById(R.id.tv_lsd_calculator_result)
+
         // Posts calculations on user data to a TextView
         findViewById<Button>(R.id.btn_lsd_calculate).setOnClickListener { postResults() }
 
