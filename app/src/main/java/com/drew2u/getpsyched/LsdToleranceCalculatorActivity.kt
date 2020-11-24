@@ -1,5 +1,10 @@
 package com.drew2u.getpsyched
 
+/**
+ * TODO find way to reset results TextView to default value if alertDialog error is called -
+ * currently will display "You need to take 0ug..." if wrong days parameter is entered by user.
+ */
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu

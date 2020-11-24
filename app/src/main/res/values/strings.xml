@@ -24,9 +24,12 @@
     go-to source for information and harm reduction tips. The first version of this app only
         contains information about LSD, but will be updated over time to include different mushrooms
         and DMT. Once that is finished we will start adding other tryptamines, phenethylamines and
-        various research chemicals.
-    </string>
+        various research chemicals.</string>
     <string name="enter">Enter</string>
-    <string name="lsd_calculator_result">You will need to take %dug to feel the effects of %dug after %d days</string>
-    <string name="lsd_calculator_warning">Warning - This is a close estimate. This is not an exact science yet as it is near impossible to know what dose you are taking without a laboratory, and the science has not been allowed to fully catch up yet.\n\nThanks to u/AdmiralAcid for working on the formula.</string>
+    <string name="lsd_calculator_result">You will need to take %dug to feel the effects of %dug
+        after %d days</string>
+    <string name="lsd_calculator_warning">Warning - This is a close estimate. This is not an exact
+        science yet as it is near impossible to know what dose you are taking without a laboratory,
+        and the science has not been allowed to fully catch up yet.\n\nThanks to u/AdmiralAcid for
+        working on and improving the formula.</string>
 </resources>
