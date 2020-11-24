@@ -1,10 +1,5 @@
 package com.drew2u.getpsyched
 
-/**
- * TODO add warning under calculator results to indicate this is a close estimate.
- * TODO add shout-out to u/AdmiralAcid for tolerance formula.
- */
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu

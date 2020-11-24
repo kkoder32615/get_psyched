@@ -84,12 +84,21 @@
     <TextView
         android:id="@+id/tv_lsd_calculator_result"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_lsd_days_since_last" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
+        android:text="@string/lsd_calculator_warning"
+        app:layout_constraintTop_toBottomOf="@id/tv_lsd_calculator_result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,9 @@
 package com.drew2u.getpsyched
 
+/**
+ * TODO Add information about LSD-25 to R.id.tv_lsd_about
+ */
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -10,7 +14,7 @@ class AboutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_about)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
