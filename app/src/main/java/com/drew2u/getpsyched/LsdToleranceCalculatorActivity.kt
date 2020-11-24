@@ -1,10 +1,5 @@
 package com.drew2u.getpsyched
 
-/**
- * TODO find way to reset results TextView to default value if alertDialog error is called -
- * currently will display "You need to take 0ug..." if wrong days parameter is entered by user.
- */
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -62,30 +57,30 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
     }
 
     /**
-     * Captures and converts entered data, then posts the results to a TextView
+     * Captures and converts entered data to be calculated, then posts the results to a TextView
      */
     private fun postResults() = try {
         val lastDose = Integer.parseInt(etLsdLastDose.text.toString())
         val desiredDose = Integer.parseInt(etLsdDesiredDose.text.toString())
         val days = Integer.parseInt(etLsdDaysSinceLast.text.toString())
-        val result = calculateTolerance(lastDose, desiredDose, days)
-        tvLsdCalculatorResult.setText(getString(R.string.lsd_calculator_result, result, desiredDose, days))
+        val result: Long
+        when (days) {
+            in 1..12 -> {
+                result = calculateTolerance(lastDose, desiredDose, days)
+                tvLsdCalculatorResult.setText(getString(R.string.lsd_calculator_result, result, desiredDose, days))
+            }
+            else -> {
+                clearEnteredData()
+                alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days), getString(R.string.okay), this)
+            }
+        }
     } catch (e: NumberFormatException) {
         alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_number), getString(R.string.okay), this)
     }
 
     /**
-     * Takes three params to calculate the approximate dosage to take. Creates alert dialog if
-     * invalid number is entered
+     * Takes three params to calculate the approximate dosage to take.
      */
-    private fun calculateTolerance(lastDose: Int, desiredDose: Int, days: Int): Long {
-        return when (days) {
-            in 1..12 -> (desiredDose + (((lastDose / 100) * 280.059565 * days.toDouble().pow(-0.412565956)) - lastDose)).toLong()
-            else -> {
-                alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days), getString(R.string.okay), this)
-                clearEnteredData()
-                0
-            }
-        }
-    }
+    private fun calculateTolerance(lastDose: Int, desiredDose: Int, days: Int): Long =
+        (desiredDose + (((lastDose / 100) * 280.059565 * days.toDouble().pow(-0.412565956)) - lastDose)).toLong()
 }
