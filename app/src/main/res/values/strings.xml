@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Get Psyched</string>
-    <string name="please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days">Please enter a number between 1 and 12. Full tolerance reset occurs after 12 days</string>
-    <string name="first_run_message">Get Psyched is for users at least 18 years of age. We do not condone the use of any legal or illegal substances; this app is meant to be used as an educational and harm reduction resource</string>
+    <string name="please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days">
+        Please enter a number between 1 and 12. Full tolerance reset occurs after 12 days</string>
+    <string name="first_run_message">Get Psyched is for users at least 18 years of age. We do not
+        condone the use of any legal or illegal substances; this app is meant to be used as an
+        educational and harm reduction resource</string>
     <string name="agree">Agree</string>
     <string name="exit">Exit</string>
     <string name="welcome">Welcome</string>
@@ -17,4 +20,12 @@
     <string name="days_since_last_dose">Days since last dose</string>
     <string name="last_dose_in_ug">Last dose in ug</string>
     <string name="lsd_tolerance_calculator">LSD Tolerance Calculator</string>
+    <string name="get_psyched_launcher_msg">Thank you for choosing Get Psyched! We aim to be your
+    go-to source for information and harm reduction tips. The first version of this app only
+        contains information about LSD, but will be updated over time to include different mushrooms
+        and DMT. Once that is finished we will start adding other tryptamines, phenethylamines and
+        various research chemicals.
+    </string>
+    <string name="enter">Enter</string>
+    <string name="lsd_calculator_result">You will need to take %dug to feel the effects of %dug after %d days</string>
 </resources>

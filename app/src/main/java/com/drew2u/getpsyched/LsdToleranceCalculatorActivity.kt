@@ -1,5 +1,10 @@
 package com.drew2u.getpsyched
 
+/**
+ * TODO add warning under calculator results to indicate this is a close estimate.
+ * TODO add shout-out to u/AdmiralAcid for tolerance formula.
+ */
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -64,7 +69,7 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
         val desiredDose = Integer.parseInt(etLsdDesiredDose.text.toString())
         val days = Integer.parseInt(etLsdDaysSinceLast.text.toString())
         val result = calculateTolerance(lastDose, desiredDose, days)
-        tvLsdCalculatorResult.setText(result.toString())
+        tvLsdCalculatorResult.setText(getString(R.string.lsd_calculator_result, result, desiredDose, days))
     } catch (e: NumberFormatException) {
         alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_number), getString(R.string.okay), this)
     }
@@ -75,7 +80,7 @@ class LsdToleranceCalculatorActivity : AppCompatActivity() {
      */
     private fun calculateTolerance(lastDose: Int, desiredDose: Int, days: Int): Long {
         return when (days) {
-            in 1..12 -> (desiredDose + (((lastDose / 100) * 280.059565 * days.toDouble().pow(0.412565956)) - lastDose)).toLong()
+            in 1..12 -> (desiredDose + (((lastDose / 100) * 280.059565 * days.toDouble().pow(-0.412565956)) - lastDose)).toLong()
             else -> {
                 alertDialog(getString(R.string.incorrect_number), getString(R.string.please_enter_a_number_between_1_and_12_full_tolerance_reset_occurs_after_12_days), getString(R.string.okay), this)
                 clearEnteredData()
