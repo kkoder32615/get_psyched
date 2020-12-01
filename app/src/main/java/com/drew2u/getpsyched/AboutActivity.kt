@@ -1,9 +1,5 @@
 package com.drew2u.getpsyched
 
-/**
- * TODO Add information about LSD-25 to R.id.tv_lsd_about
- */
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
